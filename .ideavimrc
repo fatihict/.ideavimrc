@@ -1,0 +1,70 @@
+set clipboard+=unnamed
+
+let mapleader = ','
+
+nmap >) :action :cursive.actions.paredit/slurp-forwards<cr>
+nmap <) :action :cursive.actions.paredit/barf-forwards<cr>
+nmap <( :action :cursive.actions.paredit/slurp-backwards<cr>
+nmap >( :action :cursive.actions.paredit/barf-backwards<cr>
+
+nmap <leader>ee :action :cursive.repl.actions/run-last-sexp<cr>
+nmap <leader>et :action :cursive.repl.actions/run-top-sexp<CR>
+nmap \o :action :cursive.actions.paredit/raise<cr>
+nmap \l :action :cursive.repl.actions/load-file<cr>
+nmap \n :action :cursive.repl.actions/switch-namespace<cr>
+nmap \r :action Cursive.Repl.Command.Reset<cr>
+nmap <leader>r :action RecentFiles<cr>
+nmap <A-r> :action RecentFiles<cr>
+nmap <leader>s :action GotoFile<cr>
+nmap <leader>c :action :cursive.repl.actions/clear-repl<CR>
+
+nmap <A-k> :action :cursive.actions.paredit/move-form-up<cr>
+nmap <A-j> :action :cursive.actions.paredit/move-form-down<cr>
+
+nmap <leader>q :action FileStructurePopup<cr>
+nmap \t :action :cursive.testing.actions/run-single-test<cr>
+nmap \n :action :cursive.testing.actions/run-ns-tests<cr>
+nmap \p :action :cursive.repl.actions/print-exception<cr>
+nmap <leader>b :action GotoSymbol<cr>
+nmap <leader>a :action FindInPath<cr>
+nmap <leader>d :action ChooseDebugConfiguration<cr>
+nmap <leader>f :action ShowNavBar<cr>
+nmap tn :action NextTab<cr>
+nmap tp :action PreviousTab<cr>
+
+" This is more useful in Clojure
+nnoremap w W
+nnoremap b B
+nnoremap W w
+nnoremap B b
+nnoremap e E
+nnoremap E e
+vnoremap w W
+vnoremap b B
+vnoremap W w
+vnoremap B b
+vnoremap e E
+vnoremap E e
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+
+set surround
+set hlsearch
+set ignorecase smartcase
+nmap <leader><space> :nohl<cr>
+nmap <leader>w :w
+
+" select the pasted block
+nnoremap gp `[v`]
+
+" Had issues with the built in jumping
+nmap <c-o> :action Back<cr>
+nmap <c-i> :action Forward<cr>
+
+" Clojure tests
+nmap <leader>tr :action :cursive.testing.actions/rerun-last-test<cr>
+nmap <leader>tT :action :cursive.testing.actions/run-ns-tests<cr>
+nmap <leader>tt :action :cursive.testing.actions/run-single-test<cr>
+nmap <leader>tc :action :cursive.testing.actions/remove-test-markers<cr>
